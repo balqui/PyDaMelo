@@ -3,9 +3,10 @@ from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from data import Data
 
-filename = "../data/titanic.txt"
+##filename = "../data/titanic.txt"
 ##filename = "haireyescolor.txt"
 ##filename = "cmc-full.txt"
+filename = "lenses-tr.txt"
 
 d = Data(filename)
 
@@ -39,6 +40,6 @@ for r in sorted(comparing):
 ##prmap.show()
 ##prnb.show()
 ##print "MAP:"
-##cmmap.report()        
+##cmmap.report()
 ##print "NB:"
-##cmnb.report()        
+##cmnb.report()
