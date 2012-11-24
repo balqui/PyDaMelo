@@ -10,9 +10,12 @@ from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from data import Data
 
-datafile = "../data/titanic.txt"
+datafile = "lenses-tr.txt"
+pos_class = "none"
+
+##datafile = "../data/titanic.txt"
 ##pos_class = "Survived:No"
-pos_class = "Survived:Yes"
+##pos_class = "Survived:Yes"
 
 ##datafile = "../data/weather.nominal.txt"
 ##pos_class = "play:yes"
@@ -36,7 +39,7 @@ pos = 0.0
 neg = 0.0
 
 for (v,c_true) in d.test_set:
-    if c_true == pos_class: 
+    if c_true == pos_class:
         pos += 1
     else:
         neg += 1
@@ -73,9 +76,9 @@ fapos = 0
 x = [0.0]
 y = [0.0]
 for e in sorted(result_dif,reverse=True):
-    if e[2] == pos_class: 
+    if e[2] == pos_class:
         trpos += 1
-    else: 
+    else:
         fapos += 1
     x.append(fapos/neg)
     y.append(trpos/pos)
@@ -86,9 +89,9 @@ fapos = 0
 x = [0.0]
 y = [0.0]
 for e in sorted(result_pos,reverse=True):
-    if e[2] == pos_class: 
+    if e[2] == pos_class:
         trpos += 1
-    else: 
+    else:
         fapos += 1
     x.append(fapos/neg)
     y.append(trpos/pos)
@@ -99,9 +102,9 @@ fapos = 0
 x = [0.0]
 y = [0.0]
 for e in sorted(result_neg):
-    if e[2] == pos_class: 
+    if e[2] == pos_class:
         trpos += 1
-    else: 
+    else:
         fapos += 1
     x.append(fapos/neg)
     y.append(trpos/pos)
@@ -112,9 +115,9 @@ fapos = 0
 x = [0.0]
 y = [0.0]
 for e in sorted(result_nor,reverse=True):
-    if e[2] == pos_class: 
+    if e[2] == pos_class:
         trpos += 1
-    else: 
+    else:
         fapos += 1
     x.append(fapos/neg)
     y.append(trpos/pos)
