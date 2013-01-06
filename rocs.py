@@ -4,11 +4,14 @@ the datafile (in transactional form) and plots the
 ROC curve for each class and for the difference.
 """
 
+
 import matplotlib.pyplot as plt
+
 
 from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from data import Data
+
 
 datafile = "lenses-tr.txt"
 pos_class = "none"

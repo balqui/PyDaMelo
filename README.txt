@@ -1,6 +1,5 @@
 
 
-
 PYthon DAta Mining ELementary Objects
 
 Trying to get each single element to work as easily as possible.
