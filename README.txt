@@ -13,7 +13,8 @@ Want to handle data as models, and models as data.
 
 Everything on top of some (eventually any) noSQL thingy.
 
-But this is going to start small, and for now nothing like all of this happens at all: just I am clouding a couple of useful programs.
+But this is going to start small, and for now nothing like all of 
+this happens at all: just I am clouding a couple of useful programs.
 
 JLB, 24/nov/2012
 
