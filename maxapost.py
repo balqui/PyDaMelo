@@ -62,29 +62,37 @@ class MaxAPost:
 
 if __name__=="__main__":
 
-    from confmat import ConfMat
-    
-    filename = "../data/titanic.txt"
-##    "cmc-full.txt"
+    filename = \
+    "titanic.txt"
 ##    "weather.nominal.txt"
     d = Data(filename)
 
-    print
-    
     d.report()
     
     pr = MaxAPost(d)
     pr.train()
+    pr.show()
+    exit()
+
+
+
+    from confmat import ConfMat
+    
     cm = ConfMat(pr.clsscnts)
-##    print
+    print
     for (v,c_true) in d.test_set:
         c_pred = pr.predict(v)[0]
-##        print v, c_pred, "( true class:", c_true, ")"
+        print v, c_pred, "( true class:", c_true, ")"
         cm.mat[c_pred,c_true] += 1
     print
-##    pr.show()
-##    print
+    pr.show()
+    print
     cm.report()        
+
+    exit()
+    
+    
+    
 
 ##    print pr.predict(("Class:1st","Sex:Female","Age:Child"))
 
