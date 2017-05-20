@@ -1,47 +1,56 @@
 
-from collections import defaultdict
-from data import Data
+"""
+Naive Bayes on transactional data - multinomial handling
 
-class MaxAPost:
+No Laplace for the time being
+"""
+from collections import defaultdict
+from data_noheader import Data
+
+class NaiveBayesMultinomial:
 
     def __init__(self,data):
         self.data = data
         self.normalized = False
         self.clsscnts = defaultdict(int)
-        self.condcnts = defaultdict(int)
-        self.attrcnts = defaultdict(int)
+        self.totalcls = defaultdict(int)
+        self.itemscls = defaultdict(int)
         self.condprobs = {}
         self.clssprobs = {}
 
     def train(self):
+        "store counts of appearing items"
         self.normalized = False
         for (v,c) in self.data.training_set:
             self.clsscnts[c] += 1
-            self.attrcnts[v] += 1
-            self.condcnts[v,c] += 1
+            for item in v:
+                self.totalcls[c] += 1
+                self.itemscls[item,c] += 1
         self.normalize()
 
     def normalize(self):
         if self.normalized: return
         self.normalized = True
-        for vals in self.attrcnts:
-            for c in self.clsscnts:
-                self.condprobs[vals,c] = \
-                    float(self.condcnts[vals,c])/self.attrcnts[vals]
+        for item, c in self.itemscls:
+            self.condprobs[item,c] = \
+                float(self.itemscls[item,c])/self.totalcls[c]
         for c in self.clsscnts:
             self.clssprobs[c] = float(self.clsscnts[c])/self.data.N
 
-    def value_weight(self,attrs,clval):
-        "weight of class value clval for these attrs"
-        return self.condprobs[attrs,clval]
+    def value_weight(self,items,clval):
+        "weight of class value clval for present and absent items"
+        prc = self.clssprobs[clval]
+        for item in items:
+				prc *= self.condprobs[item,clval]
+        return prc
 
 # missing method float value prediction
 
-    def predict(self,attrs):
+    def predict(self,items):
         predictions = []
         mx = 0.0
         for c in self.clssprobs.keys():
-            prc = self.value_weight(attrs,c)
+            prc = self.value_weight(items,c)
             if prc > mx:
                 predictions = []
             if prc >= mx:
@@ -54,26 +63,27 @@ class MaxAPost:
         print "\nclass probs:"
         for c in self.clssprobs:
             print c, self.clssprobs[c]
-        print "\nattr probs:"
+        print "\nitem probs:"
         for c in self.clssprobs:
             print "\nclass", c, ":"
-            for a in sorted(self.attrcnts):
-                print a, self.condprobs[a,c]
+            for item, cls in sorted(self.itemscls):
+				if c == cls:
+					print item, self.condprobs[item,c]
 
 if __name__=="__main__":
 
     filename = \
-    "titanic.txt"
-##    "weather.nominal.txt"
+    "markbasksex.txt"
+#    "markbaskhome.txt"
     d = Data(filename)
 
     d.report()
     
-    pr = MaxAPost(d)
+    pr = NaiveBayesMultinomial(d)
     pr.train()
     pr.show()
-    exit()
-
+#    exit()
+    
 
 
     from confmat import ConfMat
@@ -82,19 +92,13 @@ if __name__=="__main__":
     print
     for (v,c_true) in d.test_set:
         c_pred = pr.predict(v)[0]
-        print v, c_pred, "( true class:", c_true, ")"
+#        print v, c_pred, "( true class:", c_true, ")"
         cm.mat[c_pred,c_true] += 1
     print
     pr.show()
     print
     cm.report()        
 
-    exit()
-    
-    
-    
-
 ##    print pr.predict(("Class:1st","Sex:Female","Age:Child"))
 
 ##    print pr.predict(("Class:Crew","Sex:Female","Age:Child"))
-    counts = [ (e,pr.clsscnts[e]) for e in pr.clsscnts ]
