@@ -2,6 +2,8 @@
 Trains a 2-class NB or MAP predictor with the data in
 the datafile (in transactional form) and plots the
 ROC curve for each class and for the difference.
+
+
 """
 
 
