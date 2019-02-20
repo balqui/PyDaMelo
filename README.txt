@@ -23,3 +23,6 @@ this happens at all: just I am clouding a couple of useful programs.
 JLB, 24/nov/2012
 
 ==
+
+(To revamp into Python3 urgently!)
+
