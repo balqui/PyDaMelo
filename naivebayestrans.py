@@ -5,7 +5,8 @@ Naive Bayes on transactional data - standard handling (= Bernouilli)
 No Laplace for the time being
 """
 from collections import defaultdict
-from data_noheader import Data
+##from data_noheader import Data   # AVERIGUAR QUE ERA data_noheader
+from data import Data
 
 class NaiveBayesTrans:
 
@@ -43,10 +44,10 @@ class NaiveBayesTrans:
         "weight of class value clval for present and absent items"
         prc = self.clssprobs[clval]
         for item in self.itemcnts:
-			if item in items:
-				prc *= self.condprobs[item,clval]
-			else:
-				prc *= 1 - self.condprobs[item,clval]
+            if item in items:
+                prc *= self.condprobs[item,clval]
+            else:
+                prc *= 1 - self.condprobs[item,clval]
         return prc
 
 # missing method float value prediction
@@ -64,21 +65,21 @@ class NaiveBayesTrans:
         return predictions
 
     def show(self):
-        print "N =", self.data.N
-        print "\nclass probs:"
+        print("N =", self.data.N)
+        print("\nclass probs:")
         for c in self.clssprobs:
-            print c, self.clssprobs[c]
-        print "\nitem probs:"
+            print(c, self.clssprobs[c])
+        print("\nitem probs:")
         for c in self.clssprobs:
-            print "\nclass", c, ":"
+            print("\nclass", c, ":")
             for a in sorted(self.itemcnts):
-                print a, self.condprobs[a,c]
+                print(a, self.condprobs[a,c])
 
 if __name__=="__main__":
 
     filename = \
-    "markbasksex.txt"
-#    "markbaskhome.txt"
+    "datasets/markbaskhome.txt"
+#    "datasets/markbasksex.txt"
     d = Data(filename)
 
     d.report()

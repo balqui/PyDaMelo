@@ -5,7 +5,8 @@ Naive Bayes on transactional data - multinomial handling
 No Laplace for the time being
 """
 from collections import defaultdict
-from data_noheader import Data
+#from data_noheader import Data # ????????
+from data import Data
 
 class NaiveBayesMultinomial:
 
@@ -41,7 +42,7 @@ class NaiveBayesMultinomial:
         "weight of class value clval for present and absent items"
         prc = self.clssprobs[clval]
         for item in items:
-				prc *= self.condprobs[item,clval]
+            prc *= self.condprobs[item,clval]
         return prc
 
 # missing method float value prediction
@@ -59,22 +60,22 @@ class NaiveBayesMultinomial:
         return predictions
 
     def show(self):
-        print "N =", self.data.N
-        print "\nclass probs:"
+        print("N =", self.data.N)
+        print("\nclass probs:")
         for c in self.clssprobs:
-            print c, self.clssprobs[c]
-        print "\nitem probs:"
+            print(c, self.clssprobs[c])
+        print("\nitem probs:")
         for c in self.clssprobs:
-            print "\nclass", c, ":"
+            print("\nclass", c, ":")
             for item, cls in sorted(self.itemscls):
-				if c == cls:
-					print item, self.condprobs[item,c]
+                if c == cls:
+                    print(item, self.condprobs[item,c])
 
 if __name__=="__main__":
 
     filename = \
-    "markbasksex.txt"
-#    "markbaskhome.txt"
+    "datasets/markbaskhome.txt"
+#    "datasets/markbasksex.txt"
     d = Data(filename)
 
     d.report()
@@ -89,14 +90,14 @@ if __name__=="__main__":
     from confmat import ConfMat
     
     cm = ConfMat(pr.clsscnts)
-    print
+    print()
     for (v,c_true) in d.test_set:
         c_pred = pr.predict(v)[0]
-#        print v, c_pred, "( true class:", c_true, ")"
+#        print(v, c_pred, "( true class:", c_true, ")")
         cm.mat[c_pred,c_true] += 1
-    print
+    print()
     pr.show()
-    print
+    print()
     cm.report()        
 
 ##    print pr.predict(("Class:1st","Sex:Female","Age:Child"))
