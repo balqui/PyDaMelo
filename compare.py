@@ -39,7 +39,7 @@ for r in sorted(comparing):
 
 ##prmap.show()
 ##prnb.show()
-##print "MAP:"
+##print("MAP:")
 ##cmmap.report()
-##print "NB:"
+##print("NB:")
 ##cmnb.report()

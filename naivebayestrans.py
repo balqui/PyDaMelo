@@ -94,16 +94,16 @@ if __name__=="__main__":
     from confmat import ConfMat
     
     cm = ConfMat(pr.clsscnts)
-    print
+    print()
     for (v,c_true) in d.test_set:
         c_pred = pr.predict(v)[0]
-#        print v, c_pred, "( true class:", c_true, ")"
+#        print(v, c_pred, "( true class:", c_true, ")")
         cm.mat[c_pred,c_true] += 1
-    print
+    print()
     pr.show()
-    print
+    print()
     cm.report()        
 
-##    print pr.predict(("Class:1st","Sex:Female","Age:Child"))
+##    print(pr.predict(("Class:1st","Sex:Female","Age:Child")))
 
-##    print pr.predict(("Class:Crew","Sex:Female","Age:Child"))
+##    print(pr.predict(("Class:Crew","Sex:Female","Age:Child")))

@@ -4,6 +4,7 @@ class ConfMat:
     predictions: first (horizontal) coordinate
     true class labels: second (vertical) coordinate
     direct use such as: confmatobject.mat[predlab,truelab] += 1
+    Made for Python2 that's why it does not extend dict, some day it should
     """
     
     def __init__(self,classvals):
