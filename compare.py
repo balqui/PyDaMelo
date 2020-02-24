@@ -3,10 +3,10 @@ from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from data import Data
 
-##filename = "../data/titanic.txt"
+##filename = "datasets/titanicTr.txt"
 ##filename = "haireyescolor.txt"
-##filename = "cmc-full.txt"
-filename = "lenses-tr.txt"
+##filename = "datasets/cmcTr.txt"
+filename = "datasets/lensesTr.txt"
 
 d = Data(filename)
 
@@ -31,11 +31,11 @@ for (v,c_true) in d.test_set:
     if warn:
         comparing.add((v,c_true,c_pred_map,c_pred_nb))
 
-print
+print()
 for r in sorted(comparing):
-    print r[0], ": true class ", r[1]
-    print "    MAP pred", r[2],
-    print "    NB pred", r[3]
+    print(r[0], ": true class ", r[1])
+    print("    MAP pred", r[2], end = '')
+    print("    NB pred", r[3])
 
 ##prmap.show()
 ##prnb.show()
