@@ -83,6 +83,8 @@ class Roc:
         plt.plot([-0.001,1.001],[-0.001,1.001],color="orange") # diagonal reference
         plt.plot(self.curve[0],self.curve[1])
         plt.axes().set_aspect('equal')
+        plt.xlabel("False positive rate")
+        plt.ylabel("True positive rate")
         plt.show()
 
 if __name__ == "__main__":
