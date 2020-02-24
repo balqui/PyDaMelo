@@ -2,7 +2,11 @@
 
 PYthon DAta Mining ELementary Objects
 
+Partly migrated to Python3 but not completely.
 
+===
+
+(To revamp into Python3 urgently!)
 
 ===
 
@@ -24,5 +28,4 @@ JLB, 24/nov/2012
 
 ==
 
-(To revamp into Python3 urgently!)
 

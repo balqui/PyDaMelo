@@ -14,9 +14,9 @@ class ConfMat:
                 self.mat[c_pred,c_true] = 0
 
     def report(self):
-	"print off the confusion matrix"
+        "print off the confusion matrix"
 
-	colsepspaces = 3
+        colsepspaces = 3
         m = colsepspaces
         for c in self.classvals:
             if len(str(c)) > m:
@@ -24,19 +24,19 @@ class ConfMat:
         m += colsepspaces
         format_string = "%%%ds" % m
 
-        print "Predictions:"
+        print("Predictions:")
         for c in self.classvals:
-            print format_string % str(c),
-        print format_string % "True labels:"
+            print(format_string % str(c), end = ' ')
+        print(format_string % " True labels:")
 
         for c_true in self.classvals:
             for c_pred in self.classvals:
-                print format_string % str(self.mat[c_pred,c_true]),
-            print format_string % c_true
+                print(format_string % str(self.mat[c_pred,c_true]), end = ' ')
+            print(format_string % c_true)
 
         cnt = 0
         for c in self.classvals:
             cnt += self.mat[c,c]
-        print cnt, "instances correctly predicted"
+        print(cnt, "instances correctly predicted")
 
             

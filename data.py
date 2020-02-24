@@ -39,27 +39,27 @@ class Data:
             self.test_set = self.training_set
 
     def report(self):
-        print self.N, "observations from file", self.filename
+        print(self.N, "observations from file", self.filename)
         if self.justrain == 0:
-            print "testing with whole training set"
+            print("testing with whole training set")
         else:
-            print "training with", len(self.training_set), "observations"
-            print "testing with", len(self.test_set), "observations"
+            print("training with", len(self.training_set), "observations")
+            print("testing with", len(self.test_set), "observations")
 
 if __name__=="__main__":
     "should add some further testing here"
 
-    filename = "../data/titanic.txt"
+    filename = "datasets/titanicTr.txt"
 
-    print filename
+    print(filename)
     
     d = Data(filename)
-    print d.N
-    print len(d.training_set)
-    print len(d.test_set)
+    print(d.N)
+    print(len(d.training_set))
+    print(len(d.test_set))
 
     d = Data(filename,75)
-    print d.N
-    print len(d.training_set)
-    print len(d.test_set)
+    print(d.N)
+    print(len(d.training_set))
+    print(len(d.test_set))
 

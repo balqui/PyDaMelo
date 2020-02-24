@@ -54,21 +54,21 @@ class NaiveBayes:
         return predictions
 
     def show(self):
-        print "N =", self.data.N
-        print "\nclass probs:"
+        print("N =", self.data.N)
+        print("\nclass probs:")
         for c in self.clssprobs:
-            print c, self.clssprobs[c]
-        print "\nattr probs:"
+            print(c, self.clssprobs[c])
+        print("\nattr probs:")
         for c in self.clssprobs:
-            print "\nclass", c, ":"
+            print("\nclass", c, ":")
             for a in sorted(self.attrcnts):
-                print a, self.condprobs[a,c]
+                print(a, self.condprobs[a,c])
 
 if __name__=="__main__":
 
     filename = \
-    "weather.nominal.txt"
-##    "titanic.txt"
+    "weatherNominalTr.txt"
+##    "titanicTr.txt"
     d = Data(filename)
 
     d.report()
@@ -83,16 +83,16 @@ if __name__=="__main__":
     from confmat import ConfMat
     
     cm = ConfMat(pr.clsscnts)
-    print
+    print()
     for (v,c_true) in d.test_set:
         c_pred = pr.predict(v)[0]
-        print v, c_pred, "( true class:", c_true, ")"
+        print(v, c_pred, "( true class:", c_true, ")")
         cm.mat[c_pred,c_true] += 1
-    print
+    print()
     pr.show()
-    print
+    print()
     cm.report()        
 
-##    print pr.predict(("Class:1st","Sex:Female","Age:Child"))
+##    print(pr.predict(("Class:1st","Sex:Female","Age:Child")))
 
-##    print pr.predict(("Class:Crew","Sex:Female","Age:Child"))
+##    print(pr.predict(("Class:Crew","Sex:Female","Age:Child")))
