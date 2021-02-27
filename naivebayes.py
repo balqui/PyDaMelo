@@ -67,8 +67,8 @@ class NaiveBayes:
 if __name__=="__main__":
 
     filename = \
-    "weatherNominalTr.txt"
-##    "titanicTr.txt"
+    "datasets/titanicTr.txt"
+##    "datasets/weatherNominalTr.txt"
     d = Data(filename)
 
     d.report()
@@ -78,7 +78,6 @@ if __name__=="__main__":
     pr.show()
     exit()
     
-
 
     from confmat import ConfMat
     
@@ -92,6 +91,7 @@ if __name__=="__main__":
     pr.show()
     print()
     cm.report()        
+    exit()
 
 ##    print(pr.predict(("Class:1st","Sex:Female","Age:Child")))
 

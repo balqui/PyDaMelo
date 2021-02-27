@@ -24,10 +24,10 @@ class MaxAPost:
     def normalize(self):
         if self.normalized: return
         self.normalized = True
-        for vals in self.attrcnts:
+        for a in self.attrcnts:
             for c in self.clsscnts:
-                self.condprobs[vals,c] = \
-                    float(self.condcnts[vals,c])/self.attrcnts[vals]
+                self.condprobs[a,c] = \
+                    float(self.condcnts[a,c])/self.attrcnts[a]
         for c in self.clsscnts:
             self.clssprobs[c] = float(self.clsscnts[c])/self.data.N
 
@@ -75,7 +75,6 @@ if __name__=="__main__":
     exit()
 
 
-
     from confmat import ConfMat
     
     cm = ConfMat(pr.clsscnts)
@@ -88,12 +87,8 @@ if __name__=="__main__":
     pr.show()
     print()
     cm.report()        
-
     exit()
     
-    
-    
-
 ##    print(pr.predict(("Class:1st","Sex:Female","Age:Child")))
 
 ##    print(pr.predict(("Class:Crew","Sex:Female","Age:Child")))
