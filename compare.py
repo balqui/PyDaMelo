@@ -3,10 +3,10 @@ from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from data import Data
 
-##filename = "datasets/titanicTr.txt"
+##filename = "datasets/titanic.td"
 ##filename = "haireyescolor.txt"
-##filename = "datasets/cmcTr.txt"
-filename = "datasets/lensesTr.txt"
+##filename = "datasets/cmc.td"
+filename = "datasets/lenses.td"
 
 d = Data(filename)
 

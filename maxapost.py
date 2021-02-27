@@ -60,11 +60,11 @@ class MaxAPost:
             for a in sorted(self.attrcnts):
                 print(a, self.condprobs[a,c])
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
     filename = \
-    "datasets/titanicTr.txt"
-##    "datasets/weatherNominalTr.txt"
+    "datasets/titanic.td"
+##    "datasets/weatherNominal.td"
     d = Data(filename)
 
     d.report()

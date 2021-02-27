@@ -78,8 +78,8 @@ class NaiveBayesTrans:
 if __name__=="__main__":
 
     filename = \
-    "datasets/markbaskhome.txt"
-#    "datasets/markbasksex.txt"
+    "datasets/markbaskhome.td"
+#    "datasets/markbasksex.td"
     d = Data(filename)
 
     d.report()

@@ -94,11 +94,11 @@ if __name__ == "__main__":
 
     print_numbers = False
 
-    datafile = "datasets/titanicTr.txt"
+    datafile = "datasets/titanic.td"
     pos_class = "Survived:Yes"
 ##pos_class = "Survived:No"
 
-##datafile = "datasets/cmcTr.txt"
+##datafile = "datasets/cmc.td"
 ##pos_class = "contraceptive-method:none"
 
     d = Data(datafile)

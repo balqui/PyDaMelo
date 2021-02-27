@@ -3,9 +3,9 @@ from naivebayes import NaiveBayes
 from maxapost import MaxAPost
 from confmat import ConfMat
 
-filename = "datasets/weatherNominalTr.txt"
-## filename = "datasets/titanicTr.txt"
-## filename = "datasets/cmcTr.txt"
+filename = "datasets/weatherNominal.td"
+## filename = "datasets/titanic.td"
+## filename = "datasets/cmc.td"
 
 d = Data(filename)
 d.report()
