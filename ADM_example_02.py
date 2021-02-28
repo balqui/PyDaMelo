@@ -7,6 +7,7 @@ filename = "datasets/weatherNominal.td"
 ## filename = "datasets/titanic.td"
 ## filename = "datasets/cmc.td"
 ## filename = "datasets/german.td"
+## filename = "datasets/markbasksex.td"
 
 d = Data(filename)
 d.report()

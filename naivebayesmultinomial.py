@@ -71,11 +71,12 @@ class NaiveBayesMultinomial:
                 if c == cls:
                     print(item, self.condprobs[item,c])
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
     filename = \
     "datasets/markbaskhome.td"
 #    "datasets/markbasksex.td"
+
     d = Data(filename)
 
     d.report()
