@@ -6,6 +6,7 @@ from confmat import ConfMat
 filename = "datasets/weatherNominal.td"
 ## filename = "datasets/titanic.td"
 ## filename = "datasets/cmc.td"
+## filename = "datasets/german.td"
 
 d = Data(filename)
 d.report()
@@ -13,6 +14,7 @@ d.report()
 ## pr = NaiveBayes(d)
 pr = MaxAPost(d)
 pr.train()
+## pr.show()
 
 cm = ConfMat(pr.clsscnts)
 for (v,c_true) in d.test_set:
