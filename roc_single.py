@@ -10,6 +10,7 @@ class SRoc:
     def draw_curve(self, fp, tp):
         ax = plt.axes()
         plt.plot([-0.001,1.001],[-0.001,1.001],color="orange") # diagonal reference
+        plt.plot((fp,), (tp,), "sb")
         plt.plot((0, fp, 1), (0, tp, 1))
         ax.set_aspect('equal')
         plt.xlabel("False positive rate")
@@ -33,4 +34,4 @@ if __name__ == "__main__":
 
     r.draw_point(0.3, 0.7)
 
-#    r.draw_curve(0.3, 0.7)
+    r.draw_curve(0.3, 0.7)
