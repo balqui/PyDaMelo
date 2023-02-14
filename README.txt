@@ -2,13 +2,7 @@
 
 PYthon DAta Mining ELementary Objects
 
-Partly migrated to Python3 but not completely.
-
-===
-
-(To revamp into Python3 urgently!)
-
-===
+Partly migrated to Python3 - not sure whether completely.
 
 Trying to get each single element to work as easily as possible.
 
